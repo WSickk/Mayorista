@@ -92,7 +92,7 @@ public class Datos {
 
         Cliente cliente1 = new Cliente(1,"Tevez Francisco",lct.get(0),cuenta,ld);
         Cliente cliente2 = new Cliente(2,"Mamami Fernando",lct.get(1),cuenta,ld1);
-        Cliente cliente3 = new Cliente(3,"Roxana Vilta",lct.get(0),cuenta,ld3);
+        Cliente cliente3 = new Cliente(3,"Rosana Vilta",lct.get(0),cuenta,ld3);
         lc.add(cliente1);
         lc.add(cliente2);
         lc.add(cliente3);
