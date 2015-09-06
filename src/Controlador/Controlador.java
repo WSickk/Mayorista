@@ -66,6 +66,28 @@ public class Controlador {
         
     }
 
+    public static void eliminarP(VPrincipal aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void autorizar(VPrincipal aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void imprimir(VPrincipal aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void finalizar(VPrincipal aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void boton(VPrincipal aThis) {
+        if(aThis.getjComboBox3().getSelectedIndex() == 1){
+        aThis.getjButton4().setEnabled(true);
+        }
+    }
+
     
     
 }
