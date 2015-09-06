@@ -1,18 +1,16 @@
 package Modelo;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Datos {
+    
+    
 
-    public static LinkedList lc = new LinkedList();
-    public static LinkedList lp = new LinkedList();
-    public static LinkedList ltp = new LinkedList();
-    public static LinkedList lop = new LinkedList();
+    public static ArrayList<Cliente> lc = new ArrayList();
+    public static ArrayList<Producto> lp = new ArrayList();
+    public static ArrayList<TipoProducto> ltp = new ArrayList();
+    public static ArrayList<OrigenProducto> lop = new ArrayList();
     public static ArrayList<CondicionTributaria> lct = new ArrayList();
-    public static LinkedList lcv = new LinkedList();
-    public static LinkedList lcc = new LinkedList();
-    public static LinkedList le = new LinkedList();
     public static ArrayList<TipoFactura> ltf = new ArrayList();
     public static ArrayList<Sucursal> ld = new ArrayList();
     public static ArrayList<Sucursal> ld1 = new ArrayList();

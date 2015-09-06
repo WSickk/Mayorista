@@ -19,6 +19,9 @@ public class Cliente {
     private CuentaCorriente cuentaCo;
     private ArrayList<Sucursal> sucursal = new ArrayList();
 
+    public Cliente() {
+    }
+    
     public Cliente(int cuit, String razSocial, CondicionTributaria condTrib, CuentaCorriente cuentaCo) {
         this.cuit = cuit;
         this.razSocial = razSocial;

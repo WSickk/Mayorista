@@ -6,6 +6,7 @@
 
 package Controlador;
 
+import Modelo.Datos;
 import Vista.VPrincipal;
 
 /**
@@ -19,6 +20,16 @@ public class Mayorista {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Datos dat = new Datos();
+        dat.crearOrignProducto();
+        dat.crearTipoProducto();
+        dat.crearDireccion();
+        dat.crearTipoFactura();
+        dat.crearCondTrib();
+        dat.crearClientes();
+        dat.crearProductos();
+        
+        
     VPrincipal vista= new VPrincipal();
     vista.setTitle("Nueva Venta");
     vista.setLocationRelativeTo(null);
