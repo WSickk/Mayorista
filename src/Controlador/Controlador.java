@@ -13,6 +13,7 @@ import Vista.VPrincipal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -31,6 +32,7 @@ public class Controlador {
     
     static LoginService serv = new LoginService();
        
+    public static ArrayList<Producto> tempo = new ArrayList();
    
     public static void agregarP(VPrincipal vista) {
         Producto prod = new Producto();
@@ -46,14 +48,16 @@ public class Controlador {
                 //prod.getTipoProducto().getOrigenProducto().setOrigen(Datos.lp.get(i).getTipoProducto().getOrigenProducto().getOrigen());
                 prod.setPrecio(Datos.lp.get(i).getPrecio());
                 prod.setIVA(Datos.lp.get(i).getIVA());
-                                               
-                tablaProductos(vista,prod); 
+                
+                tempo.add(prod);
+                
+                tablaProductos(vista,prod,tempo); 
                 break;
             }
         }
     }
     
-    private static void tablaProductos(VPrincipal vista,Producto prod) {
+    private static void tablaProductos(VPrincipal vista, Producto prod, ArrayList<Producto> tempo) {
         
         DefaultTableModel modelo = new DefaultTableModel();
             modelo.addColumn("Codigo");
@@ -64,16 +68,17 @@ public class Controlador {
             modelo.addColumn("IVA");
             modelo.addColumn("Cantidad");
             
+            for (int i = 0; i < tempo.size(); i++) {
             Object[] fila = new Object[7];
-            fila[0] = prod.getCodProd();
-            fila[1] = prod.getDescripcion();
-            fila[2] = prod.getTipoProducto().getTipoP();
-            fila[3] = prod.getTipoProducto().getOrigenProducto().getOrigen();
-            fila[4] = prod.getPrecio();
-            fila[5] = prod.getIVA();
+            fila[0] = tempo.get(i).getCodProd();
+            fila[1] = tempo.get(i).getDescripcion();
+            fila[2] = tempo.get(i).getTipoProducto().getTipoP();
+            fila[3] = tempo.get(i).getTipoProducto().getOrigenProducto().getOrigen();
+            fila[4] = tempo.get(i).getPrecio();
+            fila[5] = tempo.get(i).getIVA();
             fila[6] = vista.getjTextField3().getText();
-            modelo.addRow(fila);
-       
+            modelo.addRow(fila);       
+        }
         vista.getjTable1().setModel(modelo);
     }
     
@@ -130,8 +135,6 @@ public class Controlador {
         if(aThis.getjComboBox3().getSelectedIndex() == 1){
         aThis.getjButton4().setEnabled(true);
         }
-    }
-
-    
+    }    
     
 }

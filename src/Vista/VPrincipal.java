@@ -22,7 +22,6 @@ import javax.swing.table.DefaultTableModel;
  * @author WSick
  */
 public class VPrincipal extends javax.swing.JFrame {
-     
     
     public JCalendar getjCalendar1() {
         return jCalendar1;
