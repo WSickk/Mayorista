@@ -8,10 +8,15 @@ package Controlador;
 
 import Modelo.Cliente;
 import Modelo.Datos;
+import Modelo.Producto;
 import Vista.VPrincipal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import org.tempuri.LoginService;
 
 /**
@@ -19,7 +24,6 @@ import org.tempuri.LoginService;
  * @author Roxi
  */
 public class Controlador {
-    public static LinkedList lc = new LinkedList();
     //"FCE7CD58-EDB5-449B-8825-2AA8F315CC14"
     static DecimalFormat df = new DecimalFormat("0.00");
     static double total = 0, ivatotal = 0, netogr = 0;
@@ -28,12 +32,45 @@ public class Controlador {
     static LoginService serv = new LoginService();
        
    
-    
-    
     public static void agregarP(VPrincipal vista) {
-    
+        Producto prod = new Producto();
+        int codProd = Integer.parseInt(vista.getjTextField2().getText());
+        int can = Integer.parseInt(vista.getjTextField3().getText());
+       
+        for(int i=0; i<Datos.lp.size();i++){
+            prod.setCodProd(Datos.lp.get(i).getCodProd());
+            if(codProd == Datos.lp.get(i).getCodProd()){
+                prod.setDescripcion(Datos.lp.get(i).getDescripcion());
+                prod.getTipoProducto().setTipoP(Datos.lp.get(i).getTipoProducto().getTipoP());
+                prod.getTipoProducto().getOrigenProducto().setOrigen(Datos.lp.get(i).getTipoProducto().getOrigenProducto().getOrigen());
+                prod.setPrecio(Datos.lp.get(i).getPrecio());
+                prod.setIVA(Datos.lp.get(i).getIVA());
+                                               
+                tablaProductos(vista,prod); 
+               
+            }
+        }
     }
-
+    
+    private static void tablaProductos(VPrincipal vista,Producto prod) {
+        
+        DefaultTableModel modelo = new DefaultTableModel();
+        
+            Object[] fila = new Object[7];
+            fila[0] = prod.getCodProd();
+            fila[1] = prod.getDescripcion();
+            fila[2] = prod.getTipoProducto().getTipoP();
+            fila[3] = prod.getTipoProducto().getOrigenProducto().getOrigen();
+            fila[4] = prod.getPrecio();
+            fila[5] = prod.getIVA();
+            fila[6] = vista.getjTextField3().getText();
+            modelo.addRow(fila);
+        
+       
+        vista.getjTable1().setModel(modelo);
+    }
+    
+    
     public static void buscar(VPrincipal vista) {
         Cliente cliente = new Cliente();
         Boolean bandera = false;

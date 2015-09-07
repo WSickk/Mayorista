@@ -1,25 +1,26 @@
 package Modelo;
 
-import java.util.LinkedList;
-
 public class Producto {
 
     //private LinkedList lp = new LinkedList();
     private TipoProducto tipoProducto;
-    private int codigopro;
+    private int codProd;
     private float precio;
     private float IVA;
     private String descripcion;
 
-    public Producto(int codigopro, TipoProducto tipoProducto, float precio, float IVA, String descripcion) {
+    public Producto() {
+    }
+
+        public Producto(int codProd, TipoProducto tipoProducto, float precio, float IVA, String descripcion) {
         this.tipoProducto = tipoProducto;
-        this.codigopro = codigopro;
+        this.codProd = codProd;
         this.precio = precio;
         this.IVA = IVA;
         this.descripcion = descripcion;
     }
 
-    public TipoProducto getTipoProducto() {
+        public TipoProducto getTipoProducto() {
         return tipoProducto;
     }
 
@@ -27,12 +28,12 @@ public class Producto {
         this.tipoProducto = tipoProducto;
     }
 
-    public int getCodigopro() {
-        return codigopro;
+    public int getCodProd() {
+        return codProd;
     }
 
-    public void setCodigopro(int codigopro) {
-        this.codigopro = codigopro;
+    public void setCodProd(int codProd) {
+        this.codProd = codProd;
     }
 
     public float getPrecio() {
