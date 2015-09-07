@@ -41,13 +41,14 @@ public class Controlador {
             prod.setCodProd(Datos.lp.get(i).getCodProd());
             if(codProd == Datos.lp.get(i).getCodProd()){
                 prod.setDescripcion(Datos.lp.get(i).getDescripcion());
-                prod.getTipoProducto().setTipoP(Datos.lp.get(i).getTipoProducto().getTipoP());
-                prod.getTipoProducto().getOrigenProducto().setOrigen(Datos.lp.get(i).getTipoProducto().getOrigenProducto().getOrigen());
+                prod.setTipoProducto(Datos.lp.get(i).getTipoProducto());
+                //prod.getTipoProducto().setTipoP(Datos.lp.get(i).getTipoProducto().getTipoP());
+                //prod.getTipoProducto().getOrigenProducto().setOrigen(Datos.lp.get(i).getTipoProducto().getOrigenProducto().getOrigen());
                 prod.setPrecio(Datos.lp.get(i).getPrecio());
                 prod.setIVA(Datos.lp.get(i).getIVA());
                                                
                 tablaProductos(vista,prod); 
-               
+                break;
             }
         }
     }
@@ -55,7 +56,14 @@ public class Controlador {
     private static void tablaProductos(VPrincipal vista,Producto prod) {
         
         DefaultTableModel modelo = new DefaultTableModel();
-        
+            modelo.addColumn("Codigo");
+            modelo.addColumn("Descripcion");
+            modelo.addColumn("Tipo");
+            modelo.addColumn("Origen");
+            modelo.addColumn("Precio");
+            modelo.addColumn("IVA");
+            modelo.addColumn("Cantidad");
+            
             Object[] fila = new Object[7];
             fila[0] = prod.getCodProd();
             fila[1] = prod.getDescripcion();
@@ -65,7 +73,6 @@ public class Controlador {
             fila[5] = prod.getIVA();
             fila[6] = vista.getjTextField3().getText();
             modelo.addRow(fila);
-        
        
         vista.getjTable1().setModel(modelo);
     }
